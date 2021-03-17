@@ -8,5 +8,11 @@ export default {
     width,
     height,
   },
+  headerTap:{
+    flexDirection:'row',
+    width:60,
+    justifyContent:'space-between'
+    ,marginRight:15,
+  },
   isSmallDevice: width < 375,
 };

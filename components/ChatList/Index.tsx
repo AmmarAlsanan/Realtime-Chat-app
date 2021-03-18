@@ -4,6 +4,7 @@ import {View ,Text, Image} from "react-native";
 import ChatRooms from "../../data/ChatRooms";
 import { Feather } from '@expo/vector-icons';
 import styles from "./style";
+import moment from "moment";
 
 export type ChatListItemProps={
     chatRoom:ChatRoom;
@@ -20,11 +21,11 @@ const ChatListItem =(props:ChatListItemProps)=>{
             </View>
             <View style={styles.midContener}>
                 <Text style={styles.userName}>{user.name}</Text>
-                <Text style={styles.lastMessage}>{chatRoom.lastMessage.content}</Text>
+                <Text numberOfLines={1} style={styles.lastMessage}>{chatRoom.lastMessage.content}</Text>
             </View>
 
             <View>
-                <Text style={styles.createdAt}>YesterDay</Text>
+                <Text style={styles.createdAt}>{moment(chatRoom.lastMessage.createdAt).format("MM-DD-YYYY")}</Text>
             </View>
 
 

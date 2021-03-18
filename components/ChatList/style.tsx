@@ -7,7 +7,7 @@ const styles=StyleSheet.create({
     contener:{
         borderBottomWidth:1,
         display:"flex",
-        borderBottomColor:'red',
+        borderBottomColor:'#ecebeb',
         flexDirection:'row',
         justifyContent:'space-between',
         width:'100%',

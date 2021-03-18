@@ -2,14 +2,15 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import { ColorSchemeName, View } from 'react-native';
-import { EvilIcons , Entypo } from '@expo/vector-icons';
+import { EvilIcons , Entypo ,Ionicons} from '@expo/vector-icons';
+
 
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../types';
 import MainTabNavigator from './MainTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
 import Colors from '../constants/Colors';
-import Layout from "../constants/Layout";
+import ChatRoomScreen from '../screens/ChatRoomScreen '
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -28,7 +29,9 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
 const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
-  return (
+  // @ts-ignore
+    // @ts-ignore
+    return (
     <Stack.Navigator screenOptions={{
         headerStyle:{
             backgroundColor:Colors.light.tint,
@@ -48,6 +51,13 @@ function RootNavigator() {
                   <Entypo name="dots-three-vertical" size={24} color="#fff" />
               </View>
           )}} />
+          <Stack.Screen name="ChatRoom" component={ChatRoomScreen} options={({route})=>({title:route.params.name,
+              headerRight:()=>(
+                  <View style={{flexDirection:'row', width:60,justifyContent:'space-around',marginRight:10}}>
+                      <Ionicons name="call-outline" size={24} color="#fff" style={{marginRight:20}} />
+                      <Entypo name="dots-three-vertical" size={24} color="#fff" />
+                  </View>
+              )})}/>
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );

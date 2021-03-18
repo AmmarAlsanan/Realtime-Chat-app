@@ -7,6 +7,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ChatScreen from '../screens/ChatScreen';
+import  chatRoomScreen from '../screens/ChatRoomScreen '
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { MainTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
@@ -62,18 +63,20 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const Stack = createStackNavigator<TabOneParamList>();
 
 function TabOneNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
+    <Stack.Navigator>
+      <Stack.Screen
         name="Chat"
         component={ChatScreen}
       />
-    </TabOneStack.Navigator>
+    </Stack.Navigator>
   );
 }
+
+
 
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 

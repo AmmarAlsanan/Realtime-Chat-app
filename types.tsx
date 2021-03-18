@@ -19,10 +19,11 @@ export type TabOneParamList = {
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
-export type message={
+export type Message={
   id:String;
   content:String;
   createdAt:String;
+  user:String,
 }
 
 export type User={
@@ -33,5 +34,5 @@ export type User={
 export type chatRoom={
   id:String;
   users:User[];
-  lastMessage:message;
+  lastMessage:Message;
 }
